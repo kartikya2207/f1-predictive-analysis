@@ -30,6 +30,9 @@ from Wikipedia race pages.
 | `avg_dnf_rate` | track proxy: how often cars fail to finish there |
 | `weather_category` | 0–3 label from the Wikipedia weather text (missing filled with 1.5) |
 
+![Feature coefficients](docs/images/feature_coefficients.jpg)
+*Coefficient per feature, as plotted in [`Report.pdf`](Report.pdf) (note the positive weight on pit-stop time, discussed below).*
+
 The weather labels are in [`wiki_with_weather_categorized.csv`](wiki_with_weather_categorized.csv): 304 races
 from 2005 to 2020, with the raw Wikipedia weather string and its category.
 
@@ -51,6 +54,12 @@ So the model explains about half the variance in race points on 2018–2020, wit
 ~3.6 points. Every split that tests on 2021 or 2022 scores lower (the report's sweep bottoms out around
 0.38). The notebook also plots actual vs predicted points per season and a residual histogram, and computes
 rough 95% prediction intervals with outlier flags.
+
+![Actual vs predicted points](docs/images/actual_vs_predicted_2018.png)
+*Actual vs predicted points for the first 200 driver-race rows of the 2018 test season (notebook output).*
+
+![Residual histogram](docs/images/residual_histogram.png)
+*Distribution of residuals (actual − predicted) on the test set (notebook output).*
 
 ## What I learnt
 
